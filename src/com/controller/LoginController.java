@@ -2,8 +2,10 @@ package com.controller;
 
 import java.io.IOException;
 
-import com.login.dao.LoginNDao;
-import com.login.dto.LoginNDto;
+import com.login.dao.UserDaoImpl;
+import com.login.dto.UserDto;
+import com.service.UserService;
+import com.service.UserServiceImpl;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -14,11 +16,11 @@ import jakarta.servlet.http.HttpSession;
 
 
 @WebServlet("/controller.do")
-public class MyController extends HttpServlet {
+public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 
-    public MyController() {
+    public LoginController() {
         super();
     }
 
@@ -31,13 +33,16 @@ public class MyController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String command = request.getParameter("command");
 		System.out.println("[command: "+ command + "]");
-		LoginNDao dao = new LoginNDao();
 		
+		UserService service = new UserServiceImpl();
+				
 		
 		if(command.equals("loginpage")) {
 			response.sendRedirect("login.jsp");
 		}else if(command.equals("registpage")) {
-			response.sendRedirect("resultform.jsp");
+			response.sendRedirect(request.getContextPath() + "/regist/agree.jsp");
+		}else if(command.equals("registform")) {
+			response.sendRedirect(request.getContextPath() + "/regist/registform.jsp");
 		}else if(command.equals("findidpage")) {
 			response.sendRedirect("findidform.jsp");
 		}else if(command.equals("findpwpage")) {
@@ -48,7 +53,7 @@ public class MyController extends HttpServlet {
 			String id = request.getParameter("myid");
 			String pw = request.getParameter("mypw");
 			id = id.toUpperCase();
-			LoginNDto dto = dao.login(id,pw);
+			UserDto dto = service.login(id,pw);
 			
 			if(dto.getMyid() != null){
 				HttpSession session = request.getSession();

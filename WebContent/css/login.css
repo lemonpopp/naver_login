@@ -2,6 +2,7 @@
 
 #wrap{	
 	height: 100%;
+	min-width: 400px;
 }
 
 #header {
@@ -113,7 +114,7 @@
 	color: red;
 }
 
-#err_empty_id, #err_empty_pw, #err_passkey #err_not_login{
+#err_empty_id, #err_empty_pw, #err_passkey, #err_not_login{
 	display: none;
 }
 
@@ -136,4 +137,21 @@
 	text-align: center;
 	margin-top: 20px;
 
+}
+
+#login_help_box{
+	text-align: center;
+	margin-top: 20px;
+}
+
+#login_help_box a {
+	color : gray;
+	text-decoration: none;
+	padding: 0 10px;
+	font-size: 15px;
+}
+
+
+#login_help_box a:not(:first-child) {
+	border-left: 1.5px solid #868694;
 }

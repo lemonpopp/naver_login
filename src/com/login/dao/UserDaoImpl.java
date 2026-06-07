@@ -7,25 +7,24 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.login.dto.LoginNDto;
+import com.login.dto.UserDto;
 
 
-public class LoginNDao {
+public class UserDaoImpl implements UserDao {
 
-	public LoginNDto login(String id, String pw) {
+	public UserDto login(Connection con, String id, String pw) {
 		
-		Connection con = getConnection();
 		PreparedStatement pstm = null;
 		ResultSet rs = null;
-		LoginNDto res = new LoginNDto();
+		UserDto res = new UserDto();
 		
-		String sql = " SELECT * FROM NLOGIN WHERE MYID=? AND MYPW=? ";
 		
 		try {
-			pstm = con.prepareStatement(sql);
+			pstm = con.prepareStatement(loginSql);
 			pstm.setString(1, id);
-			pstm.setString(2,pw);
-			System.out.println("3.query 준비: " + sql);
+			pstm.setString(2, id);
+			pstm.setString(3,pw);
+			System.out.println("3.query 준비: " + loginSql);
 			
 			rs = pstm.executeQuery();
 			System.out.println("4.queryt 준비");
@@ -47,8 +46,6 @@ public class LoginNDao {
 		} finally {
 			close(rs);
 			close(pstm);
-			close(con);
-			System.out.println("5.db 종료\n");
 		}
 		
 		return res;

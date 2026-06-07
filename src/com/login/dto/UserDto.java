@@ -1,6 +1,6 @@
 package com.login.dto;
 
-public class LoginNDto {
+public class UserDto {
 	private int myno;
 	private String myid;
 	private String mypw;
@@ -12,9 +12,9 @@ public class LoginNDto {
 	private String mynation;
 	private String mytel;
 	
-	public LoginNDto() {}
+	public UserDto() {}
 
-	public LoginNDto(int myno, String myid, String mypw, String myemail, String myname, int mybirth, String mymob,
+	public UserDto(int myno, String myid, String mypw, String myemail, String myname, int mybirth, String mymob,
 			String mygender, String mynation, String mytel) {
 		super();
 		this.myno = myno;

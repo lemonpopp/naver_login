@@ -24,12 +24,20 @@
 	margin-top : 20px;
 }
 
-#findid_btn,#findpw_btn,#regist_btn {
+
+#login_help_box a {
 	color : gray;
 	text-decoration: none;
+	padding: 0 10px;
+	font-size: 15px;
 }
 
-#findid_btn:hover, #findpw_btn:hover, #regist_btn:hover{
+
+#login_help_box a:not(:first-child) {
+	border-left: 1.5px solid #868694;
+}
+
+#login_help_box a:hover, #findpw_btn:hover, #regist_btn:hover{
 	text-decoration : underline;
 }
 

@@ -1,0 +1,182 @@
+@charset "UTF-8";
+
+#wrap{	
+	height: 100%;	
+}
+
+#header {
+	margin-top : 50px;
+	font-size : 50px;
+	font-weight: bold;
+	margin: 0 auto;
+	max-width: 500px;
+}
+
+#header_logo{
+	color : #2DB400;
+	text-decoration: none;
+}
+
+#context{
+	margin : 20px auto 0 auto;
+	width : 100%;
+	max-width : 700px;
+	height: 100%;
+	box-sizing: border-box;
+	padding : 0px 60px;
+}
+
+#id_box input {
+	width: 100%;
+	height: 60px;
+	box-sizing: border-box;
+	border: 2px solid #868694;
+	border-radius: 5px 5px 0 0;
+	font-size: 16px;
+	outline: none;
+	padding: 5px;
+}
+
+#pw_box input {
+	width: 100%;
+	height: 60px;
+	box-sizing: border-box;
+	border: 2px solid #868694;
+	font-size: 16px;
+	outline: none;
+	padding: 5px;
+}
+
+#email_box input {
+	width: 100%;
+	height: 60px;
+	box-sizing: border-box;
+	border: 2px solid #868694;
+	border-radius: 0 0 5px 5px;
+	font-size: 16px;
+	outline: none;
+	padding: 5px;
+}
+
+#name_box input {
+	width: 100%;
+	height: 60px;
+	box-sizing: border-box;
+	border: 2px solid #868694;
+	border-radius: 5px 5px 0 0;
+	font-size: 16px;
+	outline: none;
+	padding: 5px;
+}
+
+#birth_box input {
+	width: 100%;
+	height: 60px;
+	box-sizing: border-box;
+	border: 2px solid #868694;
+	font-size: 16px;
+	outline: none;
+	padding: 5px;
+}
+
+#mob_box select {
+	width: 100%;
+	height: 60px;
+	box-sizing: border-box;
+	border: 2px solid #868694;
+	font-size: 16px;
+	outline: none;
+	color: #868694;
+	padding: 5px;
+}
+
+#gender_nation_box {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	height: 60px;
+	box-sizing: border-box;
+	border: 2px solid #868694;
+	border-radius: 0 0 8px 8px;
+	font-size: 16px;
+	outline: none;
+	padding: 5px 10px;
+}
+
+#gender_nation_box div{
+	text-align: center;
+}
+
+#gender_box{
+	display: flex;
+	width: 50%;
+	
+}
+#male_box{
+	display: inline-block;
+	width: 50%;
+	border: 2px solid #868694;
+	border-radius: 5px 0 0 5px ;
+	cursor:pointer;	
+	color: #868694;
+}
+
+#female_box{
+	display: inline-block;
+	width: 50%;
+	border: 2px solid #868694;
+	border-radius: 0 5px 5px 0;
+	cursor:pointer;	
+	color: #868694;
+}
+
+#nation_box{
+	display: flex;
+	width: 50%;
+	padding-left: 10px;
+}
+
+#local_box{
+	display: inline-block;
+	width: 50%;
+	border: 2px solid #868694;
+	border-radius: 5px 0 0 5px ;
+	cursor:pointer;	
+	color: #868694;
+}
+
+#foreigner_box{
+	display: inline-block;
+	width: 50%;
+	border: 2px solid #868694;
+	border-radius: 0 5px 5px 0;
+	cursor:pointer;	
+	color: #868694;
+}
+
+#phone_box input {
+	width: 100%;
+	height: 60px;
+	box-sizing: border-box;
+	border: 2px solid #868694;
+	border-radius: 5px;
+	font-size: 16px;
+	outline: none;
+	padding: 5px;
+}
+
+#regist_btn_box input{
+	width: 100%;
+	height: 60px;
+	margin-top: 20px;
+	border: none;
+	border-radius: 5px;
+	background-color: #2DB400;
+	color: white;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.error{
+	color:red;
+}
