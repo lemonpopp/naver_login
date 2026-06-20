@@ -180,3 +180,8 @@
 .error{
 	color:red;
 }
+
+#error_id_null, #error_id_type, #error_pw, #error_email, #error_name_null, #error_name_type{
+	display: none
+}
+
