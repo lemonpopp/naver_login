@@ -17,7 +17,14 @@
 		<div id="container">
 			<div id="context">
 				<div id="regist_form_wrap">
-					<form action="" method="post">
+					<form action="${pageContext.request.contextPath}/controller.do" method="post" onsubmit="return registCheck();">
+						<input type="hidden" name="command" value="regist">
+						<input type="hidden" name="requiredCheck" value="${param.requiredCheck}">
+						<input type="hidden" name="nameCheck" value="${param.nameCheck}">
+						<input type="hidden" name="locationCheck" value="${param.locationCheck}">
+						<input type="hidden" name="personalCheck" value="${param.personalCheck}">
+						<input type="hidden" id="gender_input" name="gender" value="">
+						<input type="hidden" id="nation_input" name="nation" value="">
 						<div id="id_box">
 							<input type="text" id="id_input" name="id" placeholder="아이디">
 						</div>
@@ -39,10 +46,10 @@
 							<input type="text" id="name_input" name="name" placeholder="이름">
 						</div>
 						<div id="birth_box">
-							<input type="text" name="birth" placeholder="생년월일 8자리">
+							<input type="text" id="birth_input" name="birth" placeholder="생년월일 8자리">
 						</div>
 						<div id="mob_box">
-							  <select name="mob">
+							  <select id="mob_select" name="mob">
 							    <option value="" selected disabled>통신사 선택</option>
 							    <option value="SKT">SKT</option>
 							    <option value="KT">KT</option>
@@ -63,21 +70,23 @@
 							<ul class="error">
 								<li id="error_name_null">이름: 필수 정보입니다.</li>
 								<li id="error_name_type">이름: 한글, 영문 대/소문자를 사용해 주세요. (특수기호, 공백 사용 불가)</li>
-								<li>생년월일: 필수 정보입니다.</li>
-								<li>생년월일: 생년월일은 8자리 숫자로 입력해 주세요.</li>
+								<li id="error_birth_null">생년월일: 필수 정보입니다.</li>
+								<li id="error_birth_type">생년월일: 생년월일은 8자리 숫자로 입력해 주세요.</li>
+								<li id="error_gender">성별: 성별을 선택해 주세요.</li>
+								<li id="error_nation">국적: 국적를 선택해 주세요.</li>
 							</ul>
 						</div>
 						<div id="phone_box">
-							<input type="text" name="phone" placeholder="휴대전화번호">
+							<input type="text" id="phone_input" name="phone" placeholder="휴대전화번호">
 						</div>
 						<div id="phone_erorr_box">
 							<ul class="error">
-								<li>휴대전화번호: 필수 정보입니다.</li>
-								<li>휴대전화번호: 휴대전화번호가 정확한지 확인해 주세요.</li>							
+								<li id="error_phone_null">휴대전화번호: 필수 정보입니다.</li>
+								<li id="error_phone_type">휴대전화번호: 휴대전화번호가 정확한지 확인해 주세요.</li>							
 							</ul>
 						</div>
 						<div id="regist_btn_box">
-							<input id="regist_btn" type="submit" disabled="disabled" value="가입하기">
+							<input id="regist_btn" type="submit" value="가입하기">
 						</div>
 					</form>
 				</div>

@@ -11,6 +11,10 @@ public class UserDto {
 	private String mygender;
 	private String mynation;
 	private String mytel;
+	private String requiredterms;
+	private String nameterms;
+	private String locationterms;
+	private String personalterms;
 	
 	public UserDto() {}
 
@@ -27,6 +31,28 @@ public class UserDto {
 		this.mygender = mygender;
 		this.mynation = mynation;
 		this.mytel = mytel;
+	}
+	
+	
+
+	public UserDto(int myno, String myid, String mypw, String myemail, String myname, int mybirth, String mymob,
+			String mygender, String mynation, String mytel, String requiredterms, String nameterms,
+			String locationterms, String personalterms) {
+		super();
+		this.myno = myno;
+		this.myid = myid;
+		this.mypw = mypw;
+		this.myemail = myemail;
+		this.myname = myname;
+		this.mybirth = mybirth;
+		this.mymob = mymob;
+		this.mygender = mygender;
+		this.mynation = mynation;
+		this.mytel = mytel;
+		this.requiredterms = requiredterms;
+		this.nameterms = nameterms;
+		this.locationterms = locationterms;
+		this.personalterms = personalterms;
 	}
 
 	public int getMyno() {
@@ -107,6 +133,38 @@ public class UserDto {
 
 	public void setMytel(String mytel) {
 		this.mytel = mytel;
+	}
+
+	public String getRequiredterms() {
+		return requiredterms;
+	}
+
+	public void setRequiredterms(String requiredterms) {
+		this.requiredterms = requiredterms;
+	}
+
+	public String getNameterms() {
+		return nameterms;
+	}
+
+	public void setNameterms(String nameterms) {
+		this.nameterms = nameterms;
+	}
+
+	public String getLocationterms() {
+		return locationterms;
+	}
+
+	public void setLocationterms(String locationterms) {
+		this.locationterms = locationterms;
+	}
+
+	public String getPersonalterms() {
+		return personalterms;
+	}
+
+	public void setPersonalterms(String personalterms) {
+		this.personalterms = personalterms;
 	}
 	
 }

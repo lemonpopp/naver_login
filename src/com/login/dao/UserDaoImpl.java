@@ -27,7 +27,7 @@ public class UserDaoImpl implements UserDao {
 			System.out.println("3.query 준비: " + loginSql);
 			
 			rs = pstm.executeQuery();
-			System.out.println("4.queryt 준비");
+			System.out.println("4.query 실행 및 리턴");
 			if(rs.next()) {
 				res.setMyno(rs.getInt(1));
 				res.setMyid(rs.getString(2));
@@ -50,4 +50,52 @@ public class UserDaoImpl implements UserDao {
 		
 		return res;
 	}
+
+
+	@Override
+	public int regist(Connection con, String id, String pw, String email, String name, int birth, String mob,
+			String gender, String nation, String tel, String requiredterms, String nameterms, String locationterms,
+			String personalterms) {
+		
+		PreparedStatement pstm = null;
+		int res = 0;
+		
+		try {
+			pstm = con.prepareStatement(registSql);
+			
+			pstm.setString(1, id);
+			pstm.setString(2, pw);
+			pstm.setString(3, email);
+			pstm.setString(4, name);
+			pstm.setInt(5, birth);
+			pstm.setString(6, mob);
+			pstm.setString(7, gender);
+			pstm.setString(8, nation);
+			pstm.setString(9, tel);
+			pstm.setString(10, requiredterms);
+			pstm.setString(11, nameterms);
+			pstm.setString(12, locationterms);
+			pstm.setString(13, personalterms);
+			
+			System.out.println("3.query 준비: " + registSql);
+			
+			res = pstm.executeUpdate();
+			
+			System.out.println("4.query 실행 및 리턴");
+
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("3/4 단계 에러");
+		} finally {
+			close(pstm);
+		}
+		
+		return res;
+	}
+
+
+
+
+
 }

@@ -19,7 +19,7 @@
 					<input type="hidden" id="required_check" name="requiredCheck" value="N">
 					<input type="hidden" id="name_check" name="nameCheck" value="N">
 					<input type="hidden" id="location_check" name="locationCheck" value="N">
-					<input type="hidden" id="personal_check" name="persionalCheck" value="N">
+					<input type="hidden" id="personal_check" name="personalCheck" value="N">
 					<div id="all_agree">	
 						<div class ="checkarea" onclick="allcheck()">						
 							<div class="check_box" id="all_check_box" aria-checked="false"></div>

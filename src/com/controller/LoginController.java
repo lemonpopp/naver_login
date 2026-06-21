@@ -1,8 +1,8 @@
 package com.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
-import com.login.dao.UserDaoImpl;
 import com.login.dto.UserDto;
 import com.service.UserService;
 import com.service.UserServiceImpl;
@@ -42,7 +42,46 @@ public class LoginController extends HttpServlet {
 		}else if(command.equals("registpage")) {
 			response.sendRedirect(request.getContextPath() + "/regist/agree.jsp");
 		}else if(command.equals("registform")) {
-			response.sendRedirect(request.getContextPath() + "/regist/registform.jsp");
+			String requiredCheck = request.getParameter("requiredCheck");
+			String nameCheck = request.getParameter("nameCheck");
+			String locationCheck = request.getParameter("locationCheck");
+			String personalCheck = request.getParameter("personalCheck");
+
+			response.sendRedirect(request.getContextPath() + "/regist/registform.jsp?requiredCheck="+requiredCheck+"&nameCheck="+nameCheck+"&locationCheck="+locationCheck+"&personalCheck="+personalCheck);
+		}else if(command.equals("regist")) {
+			String id = request.getParameter("id");
+			id = id.toUpperCase();
+			String pw = request.getParameter("pw");
+			String email = request.getParameter("email");
+			String name = request.getParameter("name");
+			int birth = Integer.parseInt(request.getParameter("birth"));
+			String mob = request.getParameter("mob");
+			String gender = request.getParameter("gender");
+			String nation = request.getParameter("nation");
+			String phone = request.getParameter("phone");
+			String requiredCheck = request.getParameter("requiredCheck");
+			String nameCheck = request.getParameter("nameCheck");
+			String locationCheck = request.getParameter("locationCheck");
+			String personalCheck = request.getParameter("personalCheck");
+			
+			int res =service.regist(id, pw, email, name, birth, mob, gender, nation, phone, requiredCheck, nameCheck, locationCheck, personalCheck);
+
+			if(res >0) {
+				PrintWriter out = response.getWriter();
+
+			    out.println("<script>");
+			    out.println("alert('회원가입에 성공했습니다.');");
+			    out.println(
+			        "location.href='" +
+			        request.getContextPath() +
+			        "/index.html';"
+			    );
+			    out.println("</script>");
+			}else {
+				PrintWriter out = response.getWriter();
+				out.println("<script> alert('오류가 발생하였습니다. 다시 시도해주세요.');");
+			}
+			
 		}else if(command.equals("findidpage")) {
 			response.sendRedirect("findidform.jsp");
 		}else if(command.equals("findpwpage")) {

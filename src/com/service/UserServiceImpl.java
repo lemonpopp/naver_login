@@ -1,7 +1,6 @@
 package com.service;
 
-import static common.JDBCTemplate.close;
-import static common.JDBCTemplate.getConnection;
+import static common.JDBCTemplate.*;
 
 import java.sql.Connection;
 
@@ -20,6 +19,29 @@ public class UserServiceImpl implements UserService {
 		UserDto res = dao.login(con, id, pw);
 		
 		close(con);
+		System.out.println("5.db 종료\n");
+		
+		return res;
+	}
+
+	@Override
+	public int regist(String id, String pw, String email, String name, int birth, String mob, String gender,
+			String nation, String tel, String requiredterms, String nameterms, String locationterms,
+			String personalterms) {
+
+		Connection con = getConnection();
+		int res = dao.regist(con, id, pw, email, name, birth, mob, gender, 
+								nation, tel, requiredterms, nameterms, locationterms, personalterms);
+		
+		
+		if(res>0) {
+			commit(con);
+		}else {
+			rollback(con);
+		}
+		
+		close(con);
+		
 		System.out.println("5.db 종료\n");
 		
 		return res;
