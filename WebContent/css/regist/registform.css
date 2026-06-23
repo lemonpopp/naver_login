@@ -181,7 +181,7 @@
 	color:red;
 }
 
-#error_id_null, #error_id_type, #error_pw, #error_email, #error_name_null, #error_name_type, #error_birth_null, #error_birth_type, #error_phone_null, #error_phone_type, #error_gender, #error_nation{
+#error_id_null, #error_id_type, #error_pw, #error_email, #error_name_null, #error_name_type, #error_birth_null, #error_birth_type, #error_phone_null, #error_phone_type, #error_gender, #error_nation, #error_id_used{
 	display: none
 }
 

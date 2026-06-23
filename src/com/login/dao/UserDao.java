@@ -15,4 +15,8 @@ public interface UserDao {
 	public int regist(Connection con, String id, String pw, String email, String name, int birth, String mob,
 			String gender, String nation, String tel, String requiredterms, String nameterms, String locationterms,
 			String personalterms);
+	
+	String idCheckSql = " SELECT COUNT(*) FROM NLOGIN WHERE ID=? ";
+	
+	public boolean idCheck(Connection con, String id);
 }

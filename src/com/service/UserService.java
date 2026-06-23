@@ -10,4 +10,6 @@ public interface UserService {
 						  int birth, String mob, String gender, String nation,
 						  String tel, String requiredterms, String nameterms,
 						  String locationterms, String personalterms);
+
+	public boolean idCheck(String id);
 }

@@ -82,6 +82,19 @@ public class LoginController extends HttpServlet {
 				out.println("<script> alert('오류가 발생하였습니다. 다시 시도해주세요.');");
 			}
 			
+		}else if(command.equals("idcheck")) {
+			String id = request.getParameter("id");
+			id = id.toUpperCase();
+			
+			boolean res = service.idCheck(id);
+			
+			PrintWriter out = response.getWriter();
+
+		    if (res) {
+		        out.print("duplicate");
+		    } else {
+		        out.print("available");
+		    }
 		}else if(command.equals("findidpage")) {
 			response.sendRedirect("findidform.jsp");
 		}else if(command.equals("findpwpage")) {

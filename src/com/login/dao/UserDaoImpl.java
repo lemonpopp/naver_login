@@ -95,6 +95,35 @@ public class UserDaoImpl implements UserDao {
 	}
 
 
+	@Override
+	public boolean idCheck(Connection con, String id) {
+		
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		boolean res = false;
+		try {
+			pstm = con.prepareStatement(idCheckSql);
+			pstm.setString(1, id);
+			System.out.println("3.query 준비: " + idCheckSql);
+
+			rs = pstm.executeQuery();
+			System.out.println("4.query 실행 및 리턴");
+
+			if (rs.next()) {
+	            res = rs.getInt(1) > 0;
+	        }
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("3/4 단계 에러");
+		} finally {
+			close(rs);
+			close(pstm);
+		}
+		return res;
+	}
+
+
 
 
 

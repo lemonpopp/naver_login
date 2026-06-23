@@ -38,6 +38,7 @@
 							<ul class="error">
 								<li id="error_id_null">아이디: 필수 정보입니다.</li>
 								<li id="error_id_type">아이디: 5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용 가능합니다.</li>
+								<li id="error_id_used">아이디: 사용할 수 없는 아이디입니다. 다른 아이디를 입력해 주세요.</li>
 								<li id="error_pw">비밀번호: 8~16자의 영문 대/소문자, 숫자, 특수문자를 사용해 주세요.</li>
 								<li id="error_email">이메일: 이메일 주소가 정확한지 확인해 주세요.</li>
 							</ul>

@@ -46,5 +46,15 @@ public class UserServiceImpl implements UserService {
 		
 		return res;
 	}
+
+	@Override
+	public boolean idCheck(String id) {
+		Connection con = getConnection();
+		boolean res = dao.idCheck(con,id);
+		
+		close(con);
+		
+		return res;
+	}
 	
 }

@@ -1,5 +1,6 @@
 let idChkType = false;
 let idChkNull = false;
+let idDuplicateChk = false;
 let pwChk = false;
 let emailChk = false;
 
@@ -40,6 +41,7 @@ const mobSelect = document.getElementById("mob_select");
 /*에러 메시지*/
 const errorTypeId = document.getElementById("error_id_type");
 const errorTypeNull = document.getElementById("error_id_null");
+const errorIdUsed = document.getElementById("error_id_used");
 const errorPW = document.getElementById("error_pw");
 const errorEmail = document.getElementById("error_email");
 
@@ -70,7 +72,8 @@ idBox.addEventListener("change", function() {
 	    errorTypeId.style.display = "none";
 		idBox.style.border = "2px solid red";
 		idBox.style.color = "red";
-		
+		errorIdUsed.style.display = "none";
+
 	    idChkNull = false;
 	    idChkType = false;
 
@@ -80,7 +83,8 @@ idBox.addEventListener("change", function() {
 	    errorTypeId.style.display = "list-item";
 		idBox.style.border = "2px solid red";
 		idBox.style.color = "red";
-		
+		errorIdUsed.style.display = "none";
+
 	    idChkNull = true;
 	    idChkType = false;
 
@@ -93,6 +97,8 @@ idBox.addEventListener("change", function() {
 		
 	    idChkNull = true;
 	    idChkType = true;
+		
+		checkDuplicateId(idValue);
 	}
 });
 
@@ -322,6 +328,7 @@ mobSelect.addEventListener("change", function() {
 function registCheck() {
     if (!idChkType ||
         !idChkNull ||
+		!idDuplicateChk ||
         !pwChk ||
         !nameChkNull ||
         !nameChkType ||
@@ -411,6 +418,42 @@ function registCheck() {
     }
 
     return true;
+}
+
+//ID 중복 검사
+function checkDuplicateId(idValue) {
+    fetch(
+        `${contextPath}/controller.do?command=idcheck&id=${encodeURIComponent(idValue)}`
+    )
+    .then(function(response) {
+        return response.text();
+    })
+    .then(function(result) {
+        result = result.trim();
+
+        if (result === "available") {
+            // 사용 가능한 아이디
+            errorIdUsed.style.display = "none";
+
+            idBox.style.border = "2px solid #32c900";
+            idBox.style.color = "black";
+
+            idDuplicateChk = true;
+
+        } else if (result === "duplicate") {
+            // 중복된 아이디
+            errorIdUsed.style.display = "list-item";
+
+            idBox.style.border = "2px solid red";
+            idBox.style.color = "red";
+
+            idDuplicateChk = false;
+        }
+    })
+    .catch(function(error) {
+        console.error(error);
+
+    });
 }
 
 window.onload = function(){
