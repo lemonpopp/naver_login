@@ -83,12 +83,14 @@ public class LoginController extends HttpServlet {
 			}
 			
 		}else if(command.equals("idcheck")) {
-			String id = request.getParameter("id");
-			id = id.toUpperCase();
-			
-			boolean res = service.idCheck(id);
-			
-			PrintWriter out = response.getWriter();
+		    response.setContentType("text/plain; charset=UTF-8");
+
+		    String id = request.getParameter("id");
+		    id = id.toUpperCase();
+
+		    boolean res = service.idCheck(id);
+
+		    PrintWriter out = response.getWriter();
 
 		    if (res) {
 		        out.print("duplicate");
@@ -96,9 +98,9 @@ public class LoginController extends HttpServlet {
 		        out.print("available");
 		    }
 		}else if(command.equals("findidpage")) {
-			response.sendRedirect("findidform.jsp");
+			response.sendRedirect(request.getContextPath() + "/find/findidform.jsp");
 		}else if(command.equals("findpwpage")) {
-			response.sendRedirect("findpwform.jsp");
+			response.sendRedirect(request.getContextPath() + "/find/findpwform.jsp");
 		}else if(command.equals("indexpage")) {
 			response.sendRedirect("index.html");
 		}else if(command.equals("login")) {

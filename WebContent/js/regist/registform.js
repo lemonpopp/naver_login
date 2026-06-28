@@ -423,7 +423,7 @@ function registCheck() {
 //ID 중복 검사
 function checkDuplicateId(idValue) {
     fetch(
-        `${contextPath}/controller.do?command=idcheck&id=${encodeURIComponent(idValue)}`
+        "../controller.do?command=idcheck&id=" + encodeURIComponent(idValue)
     )
     .then(function(response) {
         return response.text();
@@ -435,7 +435,7 @@ function checkDuplicateId(idValue) {
             // 사용 가능한 아이디
             errorIdUsed.style.display = "none";
 
-            idBox.style.border = "2px solid #32c900";
+            idBox.style.border = "2px solid #868694";
             idBox.style.color = "black";
 
             idDuplicateChk = true;
