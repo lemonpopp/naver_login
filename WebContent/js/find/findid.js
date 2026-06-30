@@ -16,6 +16,7 @@ function findId(){
 	
 	
 	if(idChk === false){
+		//이메일 미입력 시
 		if(idValue.length === 0){
 			errorNull.style.display = "block";
 			errorType.style.display = "none";
@@ -23,7 +24,7 @@ function findId(){
 			idBox.style.border = "2px solid red";
 			idBox.style.color = "red";
 			return false;
-
+		//이메일 || 전화번호 형식이 아닐경우
 		}else if(!phonePattern.test(idValue) && !emailPattern.test(idValue)){
 			errorNull.style.display = "none";
 			errorType.style.display = "block";
@@ -31,7 +32,7 @@ function findId(){
 			idBox.style.border = "2px solid red";
 			idBox.style.color = "red";
 			return false;
-
+		//올바른 형식일 경우
 		}else{
 			errorNull.style.display = "none";
 			errorType.style.display = "none";
@@ -47,13 +48,37 @@ function findId(){
 	const nameValue = nameBox.value.trim();
 
 	if (nameValue.length === 0) {
-		errorNull.style.display = "none";
-		errorType.style.display = "none";
-		errorName.style.display = "block";
-		nameBox.style.border = "2px solid red";
-		nameBox.style.color = "red";
-		nameBox.focus();
-		return false;
+		if(idValue.length === 0){
+			errorNull.style.display = "block";
+			errorType.style.display = "none";
+			errorName.style.display = "none";
+			idBox.focus();
+			idBox.style.border = "2px solid red";
+			idBox.style.color = "red";
+			nameBox.style.border = "2px solid #bbbbc4";
+			nameBox.style.color = "black";
+			return false;
+
+		}else if(!phonePattern.test(idValue) && !emailPattern.test(idValue)){
+			errorNull.style.display = "none";
+			errorType.style.display = "block";
+			errorName.style.display = "none";
+			idBox.focus();
+			idBox.style.border = "2px solid red";
+			idBox.style.color = "red";
+			nameBox.style.border = "2px solid #bbbbc4";
+			nameBox.style.color = "balck";
+			return false;
+
+		}else{
+			errorNull.style.display = "none";
+			errorType.style.display = "none";
+			errorName.style.display = "block";
+			nameBox.style.border = "2px solid red";
+			nameBox.style.color = "red";
+			nameBox.focus();
+			return false;					
+		}
 	}
 	
 	return true;

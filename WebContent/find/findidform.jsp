@@ -20,8 +20,8 @@
 				<div id="context_title">아이디 찾기</div>
 				<div id="context_subtitle">전화번호나 이메일을 입력해주세요.</div>
 				<div id="find_id_form_wrap">
-					<form action="" method="post" onsubmit="return findId();">
-						<input type="hidden" name="command" value="findid">
+					<form action="${pageContext.request.contextPath}/controller.do" method="post" onsubmit="return findId();">
+						<input type="hidden" name="command" value="findidcode">
 						<div id="id_box">
 							<input type="text" id="id_input" name="id" placeholder="전화번호 또는 본인확인 이메일">
 						</div>
