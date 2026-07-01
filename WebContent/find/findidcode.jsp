@@ -15,29 +15,29 @@
 		</div>
 		<div id="container">
 			<div id="title">			
-				<div>메일/문자을(를) 발송했어요</div>
-				<div>인증번호를 입력해주세요</div>
+				<div id="maintitle">메일/문자을(를) 발송했어요</div>
+				<div id="subtitle">인증번호를 입력해주세요</div>
 			</div>
 			<div id="context">
-				<div>
-					<div id="codebox1"></div>
-					<div id="codebox2"></div>
-					<div id="codebox3"></div>
-					<div id="codebox4"></div>
-					<div id="codebox5"></div>
-					<div id="codebox6"></div>
+				<div id="codebox">
+					<div class="code_input_box" id="codebox1" contenteditable="true" maxlength="1"></div>
+					<div class="code_input_box" id="codebox2" contenteditable="true" maxlength="1"></div>
+					<div class="code_input_box" id="codebox3" contenteditable="true" maxlength="1"></div>
+					<div class="code_input_box" id="codebox4" contenteditable="true" maxlength="1"></div>
+					<div class="code_input_box" id="codebox5" contenteditable="true" maxlength="1"></div>
+					<div class="code_input_box" id="codebox6" contenteditable="true" maxlength="1"></div>
 				</div>
 				<div>
-					<div>6자리를 모두 채워주세요</div>
+					<div id="err_codebox">6자리를 모두 채워주세요</div>
 				</div>
-				<div>
-					<div>재전송</div>
-					<button>다음</button>
+				<div id="btn_box">
+					<div id="resend_btn">재전송</div>
+					<button id="next_btn">다음</button>
 				</div>
-				<div>
-					<div>남은시간</div>
-					<div>❓</div>
-					<div>시간연장</div>				
+				<div id="time_box">
+					<div id="time_left">남은시간</div>
+					<div id="time_info_btn">❓</div>
+					<div id="time_extend_btn">시간연장</div>				
 				</div>
 			</div>
 		</div>

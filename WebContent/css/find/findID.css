@@ -80,13 +80,13 @@
 }
 
 #find_id_btn_box input {
-	width: 100px;
-	height: 60px;
+	width: 80px;
+	height: 40px;
 	border: none;
 	border-radius: 5px;
 	background-color: #2DB400;
 	color: white;
-	font-size: 18px;
+	font-size: 15px;
 	font-weight: bold;
 	cursor: pointer;
 }

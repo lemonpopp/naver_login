@@ -31,3 +31,77 @@
 	box-sizing: border-box;
 	padding : 0px 60px;
 }
+
+#title{
+	padding-top : 15px;
+}
+
+#maintitle, #subtitle{
+	font-size : 25px;
+	font-weight : 650;
+}
+
+#codebox{
+	margin-top : 20px;
+	display: flex;
+	justify-content: space-between;
+	width : 300px;
+}
+
+.code_input_box{
+	width : 40px;
+	height : 50px;
+	border: 2px solid #bbbbc4;
+	text-align: center;
+	border-radius: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	outline: none;
+	caret-color: transparent;
+}
+
+.code_input_box:focus{
+	border: 2px solid #2DB400;
+}
+
+#err_codebox{
+	color : #bbbbc4;
+}
+
+#btn_box{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#resend_btn{
+	color : #2DB400;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+#next_btn{
+	width: 80px;
+	height: 40px;
+	border: none;
+	border-radius: 5px;
+	background-color: #2DB400;
+	color: white;
+	font-size: 15px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+#time_box {
+	display: flex;
+	color : #bbbbc4;
+}
+
+#time_info_btn, #time_extend_btn{
+	cursor: pointer;
+}
+
+#time_extend_btn{
+	text-decoration: underline;
+}
