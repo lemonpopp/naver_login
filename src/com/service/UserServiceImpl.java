@@ -56,5 +56,15 @@ public class UserServiceImpl implements UserService {
 		
 		return res;
 	}
+
+	@Override
+	public String findid(String email, String phone, String name) {
+		Connection con = getConnection();
+		String res = dao.findid(con, email, phone, name);
+		
+		close(con);
+		
+		return res;
+	}
 	
 }

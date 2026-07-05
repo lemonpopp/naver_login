@@ -124,6 +124,34 @@ public class UserDaoImpl implements UserDao {
 	}
 
 
+	@Override
+	public String findid(Connection con, String email, String phone, String name) {
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		String res = null;
+		
+		try {
+			pstm = con.prepareStatement(findIdSql);
+			pstm.setString(1, email);
+			pstm.setString(2, phone);
+			pstm.setString(3,name);
+			System.out.println("3.query 준비: " + findIdSql);
+			
+			rs = pstm.executeQuery();
+			System.out.println("4.query 실행 및 리턴");
+			if(rs.next()) {
+				res = rs.getString(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("3/4 단계 에러");
+		} finally {
+			close(rs);
+			close(pstm);
+		}
+		
+		return res;
+	}
 
 
 

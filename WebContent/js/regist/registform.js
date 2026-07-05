@@ -456,6 +456,3 @@ function checkDuplicateId(idValue) {
     });
 }
 
-window.onload = function(){
-	
-}

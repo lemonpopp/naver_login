@@ -12,4 +12,7 @@ public interface UserService {
 						  String locationterms, String personalterms);
 
 	public boolean idCheck(String id);
+
+	public String findid(String email, String phone, String name);
+	
 }

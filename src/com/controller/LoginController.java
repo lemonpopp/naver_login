@@ -39,7 +39,7 @@ public class LoginController extends HttpServlet {
 		
 		if(command.equals("loginpage")) {
 			response.sendRedirect("login.jsp");
-		}else if(command.equals("registpage")) {
+		}else if(command.equals("registpage")) { 
 			response.sendRedirect(request.getContextPath() + "/regist/agree.jsp");
 		}else if(command.equals("registform")) {
 			String requiredCheck = request.getParameter("requiredCheck");
@@ -133,7 +133,57 @@ public class LoginController extends HttpServlet {
 		    session.setAttribute("findIdExpireTime", expireTime);	
 		    
 		    response.sendRedirect(request.getContextPath() + "/find/findidcode.jsp");
+		}else if(command.equals("extendfindidtime")) {
+		    HttpSession session = request.getSession(false);
+
+		    response.setContentType("application/json; charset=UTF-8");
+
+		    if(session == null || session.getAttribute("findIdCode") == null) {
+		        response.getWriter().print("{\"success\":false}");
+		        return;
+		    }
+
+		    // 현재 시간부터 다시 5분 설정
+		    long expireTime = System.currentTimeMillis() + (5 * 60 * 1000);
+
+		    session.setAttribute("findIdExpireTime", expireTime);
+
+		    response.getWriter().print(
+		        "{\"success\":true, \"expireTime\":" + expireTime + "}"
+		    );
+
+		    return;
+		}else if(command.equals("findid")) {
+			String email = request.getParameter("email");
+			String phone = request.getParameter("phone");
+			String name = request.getParameter("name");
+			
+		    System.out.println("===== 아이디 찾기 요청 =====");
+		    System.out.println("email: " + email);
+		    System.out.println("phone: " + phone);
+		    System.out.println("name: " + name);
+			
+			
+			String res = service.findid(email,phone,name);
+			
+			System.out.println("결과: " + res);
+			
+			response.setContentType("application/json");
+			response.setCharacterEncoding("UTF-8");
+			
+			PrintWriter out = response.getWriter();
+			if(res != null) {
+		        out.print(
+		            "{\"success\":true,\"findId\":\"" + res + "\"}"
+		        );
+		    } else {
+		        out.print(
+		            "{\"success\":false}"
+		        );
+		    }
+			
+			out.flush();
+			return;
 		}
 	}
-
 }

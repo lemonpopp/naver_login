@@ -20,17 +20,22 @@
 				<div id="maintitle">메일/문자을(를) 발송했어요</div>
 				<div id="subtitle">인증번호를 입력해주세요</div>
 			</div>
+			<input type="hidden" id="findIdEmail" value="${sessionScope.findIdEmail}">
+			<input type="hidden" id="findIdPhone" value="${sessionScope.findIdPhone}">
+			<input type="hidden" id="findIdName" value="${sessionScope.findIdName}">
+			<input type="hidden" id="findIdCode" value="${sessionScope.findIdCode}">
 			<div id="context">
 				<div id="codebox">
-					<div class="code_input_box" id="codebox1" contenteditable="true" maxlength="1"></div>
-					<div class="code_input_box" id="codebox2" contenteditable="true" maxlength="1"></div>
-					<div class="code_input_box" id="codebox3" contenteditable="true" maxlength="1"></div>
-					<div class="code_input_box" id="codebox4" contenteditable="true" maxlength="1"></div>
-					<div class="code_input_box" id="codebox5" contenteditable="true" maxlength="1"></div>
-					<div class="code_input_box" id="codebox6" contenteditable="true" maxlength="1"></div>
+					<div class="code_input_box" id="codebox1" contenteditable="true"></div>
+					<div class="code_input_box" id="codebox2" contenteditable="true"></div>
+					<div class="code_input_box" id="codebox3" contenteditable="true"></div>
+					<div class="code_input_box" id="codebox4" contenteditable="true"></div>
+					<div class="code_input_box" id="codebox5" contenteditable="true"></div>
+					<div class="code_input_box" id="codebox6" contenteditable="true"></div>
 				</div>
 				<div>
 					<div id="err_codebox">6자리를 모두 채워주세요</div>
+					<div id="err_codebox_wrong">인증번호를 정확히 입력해 주세요.</div>
 				</div>
 				<div id="btn_box">
 					<div id="resend_btn">재전송</div>

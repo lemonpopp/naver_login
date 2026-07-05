@@ -19,4 +19,8 @@ public interface UserDao {
 	String idCheckSql = " SELECT COUNT(*) FROM NLOGIN WHERE ID=? ";
 	
 	public boolean idCheck(Connection con, String id);
+
+	public String findid(Connection con, String email, String phone, String name);
+	
+	String findIdSql = " SELECT ID FROM NLOGIN WHERE (EMAIL=? OR TEL=?) AND NAME=? ";
 }

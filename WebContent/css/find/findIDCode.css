@@ -59,6 +59,8 @@
 	align-items: center;
 	outline: none;
 	caret-color: transparent;
+	color : #2DB400;
+	font-weight : bold;
 }
 
 .code_input_box:focus{
@@ -68,6 +70,11 @@
 #err_codebox{
 	display : none;
 	color : #bbbbc4;
+}
+
+#err_codebox_wrong{
+	display : none;
+	color : red;
 }
 
 #btn_box{
