@@ -6,6 +6,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/find/findIDCode.css">
+<script defer src="${pageContext.request.contextPath}/js/find/findidcode.js"></script>
+
 </head>
 <body>
 	<div id="wrap" class="wrap">
@@ -35,7 +37,9 @@
 					<button id="next_btn">다음</button>
 				</div>
 				<div id="time_box">
-					<div id="time_left">남은시간</div>
+					<div id="time_text">남은시간 </div>
+					<div id="timer"></div>
+					<input type="hidden" id="expireTime" value="${sessionScope.findIdExpireTime}">
 					<div id="time_info_btn">❓</div>
 					<div id="time_extend_btn">시간연장</div>				
 				</div>

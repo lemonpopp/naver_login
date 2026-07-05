@@ -124,12 +124,13 @@ public class LoginController extends HttpServlet {
 			String name = request.getParameter("name");
 			HttpSession session = request.getSession();
 			String code = "123456"; //임시 인증 코드 생성
-			
+			long expireTime = System.currentTimeMillis() + (5 * 60 * 1000); //세션 유지 시간 설정 300초
+
 			session.setAttribute("findIdEmail", id);
 			session.setAttribute("findIdPhone", id);
 		    session.setAttribute("findIdName", name);
 		    session.setAttribute("findIdCode", code);
-		    session.setMaxInactiveInterval(60*5);	//세션 유지 시간 설정 300초
+		    session.setAttribute("findIdExpireTime", expireTime);	
 		    
 		    response.sendRedirect(request.getContextPath() + "/find/findidcode.jsp");
 		}

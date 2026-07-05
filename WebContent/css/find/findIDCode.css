@@ -66,6 +66,7 @@
 }
 
 #err_codebox{
+	display : none;
 	color : #bbbbc4;
 }
 
