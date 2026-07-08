@@ -65,6 +65,8 @@ codebox.onclick = () => {
 		codebox5.focus();
 	}else if(codebox6.textContent.trim() === ""){
 		codebox6.focus();
+	}else{
+		codebox6.focus();
 	}
 }
 
